@@ -1,0 +1,46 @@
+﻿<Window x:Class="OverridingLogicalTree.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OverridingLogicalTree"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="600">
+    <DockPanel>
+        <!-- Styles for consistency -->
+        <DockPanel.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="Width" Value="200"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="FontSize" Value="14"/>
+            </Style>
+        </DockPanel.Resources>
+
+        <!-- Top section with instructions -->
+        <StackPanel DockPanel.Dock="Top" Margin="10">
+            <TextBlock FontSize="16" FontWeight="Bold" Margin="0,0,0,5">SingletonPanel Demo</TextBlock>
+            <TextBlock FontSize="12" TextWrapping="Wrap">Use the buttons below to test interactions with the SingletonPanel. You can dynamically add or clear buttons, fetch data, and test other functionalities.</TextBlock>
+        </StackPanel>
+
+        <!-- Button actions (wrapped in a Border for padding) -->
+        <Border DockPanel.Dock="Left" Background="#EEE" Padding="10">
+            <StackPanel>
+                <Button Name="buttonCreate" Click="AddLogicalElement">Add Single Button</Button>
+                <Button Name="buttonMultiple" Click="OnAddMultipleButtons">Add Multiple Buttons</Button>
+                <Button Name="buttonFetch" Click="OnFetchData">Fetch and Add Button</Button>
+                <Button Name="buttonClear" Click="OnClearPanel">Clear SingletonPanel</Button>
+                <Button Name="buttonConditional" Click="OnAddConditionalButton">Add Conditional Button</Button>
+            </StackPanel>
+        </Border>
+
+        <!-- SingletonPanel to host elements -->
+        <Border DockPanel.Dock="Right" BorderBrush="Gray" BorderThickness="1" Margin="5" Background="#F9F9F9">
+            <local:SingletonPanel x:Name="CustomElement">
+                <TextBlock Text="This is the SingletonPanel. Dynamic elements will appear here." 
+                           FontStyle="Italic" Foreground="Gray" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </local:SingletonPanel>
+        </Border>
+    </DockPanel>
+</Window>
