@@ -17,9 +17,17 @@ namespace OverridingLogicalTree
         private void AddLogicalElement(object sender, RoutedEventArgs e)
         {
             var mybutton = new Button { Content = "Happy birthday! " + DateTime.Now.TimeOfDay };
-            CustomElement.SetSingleChild(mybutton);
+           // CustomElement.SetSingleChild(mybutton);
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Button clicked!");
         }
 
+        private void ModernButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Modern Button clicked!");
+        }
         // New methods to enhance functionality
 
         // 1. Add multiple dynamic buttons based on a list of strings
@@ -28,7 +36,7 @@ namespace OverridingLogicalTree
             foreach (var content in buttonContents)
             {
                 var mybutton = CreateButton(content);
-                CustomElement.SetSingleChild(mybutton); // Add buttons sequentially
+               // CustomElement.SetSingleChild(mybutton); // Add buttons sequentially
                 // Alternatively, update your panel to accept multiple children
             }
         }
@@ -38,13 +46,13 @@ namespace OverridingLogicalTree
         {
             string fetchedMessage = await SimulateApiCallAsync();
             var mybutton = CreateButton($"Fetched: {fetchedMessage}");
-            CustomElement.SetSingleChild(mybutton);
+            //CustomElement.SetSingleChild(mybutton);
         }
 
         // 3. Clear the SingletonPanel
         private void ClearSingletonPanel()
         {
-            CustomElement.RemoveLogicalChild(null); // Clear the child
+          //  CustomElement.RemoveLogicalChild(null); // Clear the child
             MessageBox.Show("SingletonPanel cleared!");
         }
 
@@ -58,7 +66,7 @@ namespace OverridingLogicalTree
             }
 
             var mybutton = CreateButton(userInput);
-            CustomElement.SetSingleChild(mybutton);
+          //  CustomElement.SetSingleChild(mybutton);
         }
 
         // 5. Method to toggle button visibility
@@ -113,7 +121,7 @@ namespace OverridingLogicalTree
             // Exemple d'une condition pour ajouter un bouton
             if (DateTime.Now.Second % 2 == 0)
             {
-                CustomElement.SetSingleChild(myButton); // Si la condition est vraie, ajouter le bouton
+               // CustomElement.SetSingleChild(myButton); // Si la condition est vraie, ajouter le bouton
             }
             else
             {

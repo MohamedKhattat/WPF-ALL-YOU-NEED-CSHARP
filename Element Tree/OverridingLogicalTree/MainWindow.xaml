@@ -20,16 +20,30 @@
 
         <!-- Top section with instructions -->
         <StackPanel DockPanel.Dock="Top" Margin="10">
-            <TextBlock FontSize="16" FontWeight="Bold" Margin="0,0,0,5">SingletonPanel Demo</TextBlock>
-            <TextBlock FontSize="12" TextWrapping="Wrap">Use the buttons below to test interactions with the SingletonPanel. You can dynamically add or clear buttons, fetch data, and test other functionalities.</TextBlock>
+            <TextBlock FontSize="16" FontWeight="Bold" Margin="0,0,0,5">Centre de gestion d'archives</TextBlock>
+            <TextBlock FontSize="12" TextWrapping="Wrap">description....................................................................................................</TextBlock>
+        </StackPanel>
+
+        <!-- Date selection section -->
+        <StackPanel DockPanel.Dock="Top" Margin="10" Orientation="Horizontal">
+            <TextBlock Text="Start Date:" VerticalAlignment="Center" Margin="5"/>
+            <DatePicker Name="startDatePicker" Margin="5"/>
+            <TextBlock Text="End Date:" VerticalAlignment="Center" Margin="5"/>
+            <DatePicker Name="endDatePicker" Margin="5"/>
+            <TextBlock Text="Select Option:" VerticalAlignment="Center" Margin="5"/>
+            <ComboBox Name="optionComboBox" Margin="5" Width="350">
+                <ComboBoxItem Content="Option 1"/>
+                <ComboBoxItem Content="Option 2"/>
+                <ComboBoxItem Content="Option 3"/>
+            </ComboBox>
         </StackPanel>
 
         <!-- Button actions (wrapped in a Border for padding) -->
         <Border DockPanel.Dock="Left" Background="#EEE" Padding="10">
             <StackPanel>
-                <Button Name="buttonCreate" Click="AddLogicalElement">Add Single Button</Button>
-                <Button Name="buttonMultiple" Click="OnAddMultipleButtons">Add Multiple Buttons</Button>
-                <Button Name="buttonFetch" Click="OnFetchData">Fetch and Add Button</Button>
+                <Button Name="buttonCreate" Click="AddLogicalElement">Archiver</Button>
+                <Button Name="buttonMultiple" Click="OnAddMultipleButtons">Exporter</Button>
+                <Button Name="buttonFetch" Click="OnFetchData">Paramètrer</Button>
                 <Button Name="buttonClear" Click="OnClearPanel">Clear SingletonPanel</Button>
                 <Button Name="buttonConditional" Click="OnAddConditionalButton">Add Conditional Button</Button>
             </StackPanel>
