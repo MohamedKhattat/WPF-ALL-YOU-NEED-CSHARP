@@ -1,79 +1,99 @@
-# WPF-Samples
-This repo contains the samples that demonstrate the API usage patterns and popular features for the Windows Presentation Foundation in the .NET for Desktop. These samples were initially hosted on [MSDN](https://msdn.microsoft.com/en-us/library/vstudio/ms771633.aspx), and we are gradually 
-moving all the interesting WPF samples over to GitHub. All the samples have been retargeted to  [.NET 8.0](https://dotnet.microsoft.com/en-us/download).
+# WPF — All You Need (C# Reference & Samples)
 
-You can also find an archive of samples targeting .NET 4.7.2 in the [netframework](https://github.com/microsoft/WPF-Samples/tree/netframework) branch.
+> A curated, hands-on collection of WPF samples used to learn the framework's architecture — built on top of Microsoft's official WPF-Samples.
 
-The samples in this repo are generally about illustrating specific concepts and may go against accessibility best practices. However, the team has spent some time illustrating accessibility best practices in a subset of these samples.
+![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
+![.NET](https://img.shields.io/badge/.NET%208-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
+![WPF](https://img.shields.io/badge/WPF-0C54C2?style=for-the-badge&logo=windows&logoColor=white)
+![XAML](https://img.shields.io/badge/XAML-0C54C2?style=for-the-badge&logo=microsoft&logoColor=white)
+![Visual Studio](https://img.shields.io/badge/Visual%20Studio%202022-5C2D91?style=for-the-badge&logo=visual-studio&logoColor=white)
 
-* [ExpenseItIntro](https://github.com/microsoft/WPF-Samples/tree/main/Getting%20Started/WalkthroughFirstWPFApp/csharp)
-* [ExpenseItDemo](https://github.com/microsoft/WPF-Samples/tree/main/Sample%20Applications/ExpenseIt/ExpenseItDemo)
-* [DataBindingDemo](https://github.com/microsoft/WPF-Samples/tree/main/Sample%20Applications/DataBindingDemo)
-* [CustomComboBox](https://github.com/microsoft/WPF-Samples/tree/main/Sample%20Applications/CustomComboBox)
-* [EditingExaminerDemo](https://github.com/microsoft/WPF-Samples/tree/main/Sample%20Applications/EditingExaminerDemo)
+## Overview
 
-For WPF samples using .NET Framework, visit [here](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/wpf-samples?view=netframeworkdesktop-4.8).
+This repository is a **reference and study collection for Windows Presentation Foundation (WPF) in C#**. It is **adapted from Microsoft's official [WPF-Samples](https://github.com/microsoft/WPF-Samples)** — the canonical samples that demonstrate WPF API usage patterns and popular features — retargeted to **.NET 8.0**.
+
+I assembled and worked through these samples to get familiar with the **WPF architecture** (the visual/logical trees, data binding, routed events, dependency properties, styling and templating, the dispatcher/threading model, and resource management) in the context of building a **fiscal cash-register desktop application**. Alongside the Microsoft samples, the root also contains a small original UI sketch — `archivage.xaml` — a French-language data-archiving window (audit trails, cash data, pre-purge export) prototyped for that project.
+
+> **Attribution & honesty:** The vast majority of the sample code here is **Microsoft's WPF-Samples**, not original work. This repo is a personal learning fork/reference — a place to read, build, and experiment with proven WPF patterns. Credit for the samples belongs to the Microsoft WPF team. See [`LICENSE`](LICENSE) (MIT, © Microsoft).
+
+## What's Inside
+
+The samples are organized by WPF concept area. Each folder typically contains one or more self-contained, buildable projects.
+
+### Core framework concepts
+- **Getting Started** — Hello World, layout (simple/complex/dynamic), multi-page apps, the first-WPF-app walkthrough
+- **Elements** — element properties, sizing, margins, visibility, focus visual styles, context menus
+- **Element Tree** — overriding the logical tree, searching for elements
+- **Events** — routed events, custom routed events, finding the source element, attaching handlers
+- **Input and Commands** — routed commands, `ICommandSource`, editing commands, mouse/keyboard/touch input, focus handling
+- **Properties** — dependency properties, callbacks, custom classes with DPs, restoring default values
+
+### UI, data & visuals
+- **Data Binding** — value conversion, validation, collection/master-detail binding, `CollectionViewSource`, grouping, LINQ, data templating, data triggers
+- **Styles & Templates** — styling intro, content/control templates, event triggers, alternating item appearance
+- **Resources** — application/merged/defined resources
+- **Graphics** — 2D transforms, brushes, geometries, bitmap encoders/decoders, effects, image views, matrices
+- **Animation** — keyframe, path, per-frame, opacity, property and custom animations, timing and key splines
+- **Visual Layer** — `DrawingVisual`, `CompositionTarget`, visual hit-testing
+- **Documents** — flow & fixed documents, annotations, spell checking
+
+### Application & platform
+- **Application Management** — shutdown, single-instance detection, command-line args, unhandled-exception handling, skinned apps
+- **Windows** — dialogs, message boxes, custom/non-rectangular windows, notification icon, window state & activation, wizard
+- **Threading** — the `Dispatcher`, single-threaded apps, multi-threaded web browser
+- **Clipboard** — clipboard viewer/spy
+- **Drag and Drop** — data formats, events, objects, text & thumb operations
+- **Speech and Media** — media gallery, speech synthesis/recognition
+- **Accessibility** — UI Automation patterns (find/insert/select text, focus tracking, highlighter, window move)
+- **Globalization and Localization** — flow direction, BAML localization, multi-language formatting, LTR/RTL
+- **PerMonitorDPI** — per-monitor DPI awareness, image/text scaling, WinForms host
+- **Migration and Interoperability** — hosting Win32/WinForms in WPF and vice-versa, ActiveX, property mapping
+- **Compatibility** — `AppContext` quirks / compatibility switches
+
+### Tools & full demos
+- **Tools** — `BamlReflector`, `LocBaml`
+- **Sample Applications** — larger end-to-end demos: `ExpenseIt`, `DataBindingDemo`, `CustomComboBox`, `CalculatorDemo`, `GraphingCalculatorDemo`, `PhotoStoreDemo`, `PhotoViewerDemo`, `StickyNotesDemo`, `SlidePuzzleDemo`, `HtmlToXamlDemo`, and more
+
+### Original work
+- **`archivage.xaml` / `archivage.xaml.cs`** — a small French-language WPF window prototyped for the fiscal cash-register project (data-type selection, date range, archive/export actions). Demonstrates `DockPanel` layout, styles, `ComboBox`, and `DatePicker`.
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| Language | C# |
+| UI framework | WPF (Windows Presentation Foundation) |
+| Markup | XAML |
+| Target framework | .NET 8.0 (`net8.0-windows`); SDK-style projects |
+| SDK pinning | `global.json` (supports .NET 6/7/8 and .NET 9 preview tooling) |
+| IDE / build | Visual Studio 2022 · `dotnet build` · `msbuild` |
+| OS | Windows |
+
+## Getting Started
+
+```bash
+# Clone
+git clone https://github.com/MohamedKhattat/WPF-ALL-YOU-NEED-CSHARP.git
+cd WPF-ALL-YOU-NEED-CSHARP
+```
+
+- Open **`WPFSamples.sln`** in **Visual Studio 2022** and build, **or**
+- Navigate into any sample folder and run `dotnet build` / `dotnet run` on its `.csproj`.
+
+**Notes**
+- Requires the **.NET 8 SDK** (later SDKs work via the `global.json` roll-forward).
+- `WPFSamples.msbuild.sln` contains projects that build only with **MSBuild / Visual Studio** (they include C++ code, which `dotnet build` does not support).
+- Most samples are self-contained and can be built independently.
+
+## Notes
+
+- This is a **learning and reference repository**, not a single shippable application. Individual samples illustrate specific WPF concepts and may intentionally trade off best practices to keep each example focused.
+- For the authoritative, continuously-updated source, see Microsoft's upstream [WPF-Samples](https://github.com/microsoft/WPF-Samples) and the open-source [WPF runtime](https://github.com/dotnet/wpf).
+- Samples are provided as-is to demonstrate WPF programming models and feature APIs.
 
 ## License
-Unless otherwise mentioned, the samples are released under the [MIT license](https://github.com/Microsoft/WPF-Samples/blob/main/LICENSE)
 
-## Help us improve our samples
-Help us improve out samples by sending us a pull-request or opening a [GitHub Issue](https://github.com/Microsoft/WPF-Samples/issues)
+Released under the **MIT License**. Unless otherwise noted, the samples originate from Microsoft's WPF-Samples and remain under their original MIT license (© Microsoft). See [`LICENSE`](LICENSE).
 
-Questions: mail wpfteam@microsoft.com
-
-## WPF development
-
-# For .NET 8 - main branch
-
-These samples require Visual Studio 2022(v17.8) to build, test, and deploy, and also require the most recent .NET 8 SDK.
-
-   [Get a free copy of Visual Studio 2022 Community Edition](https://www.visualstudio.com/wpf-vs)
-
-   [.NET 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
-
-
-# For .NET 7
-
-These samples require Visual Studio 2022(v17.7), Visual Studio 2022 for Mac (v17.6) to build, test, and deploy, and also require the .NET 7 SDK.
-
-   [Get a free copy of Visual Studio 2022 Community Edition](https://www.visualstudio.com/wpf-vs)
-
-   [.NET 7 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
-
-
-
-# For .NET 6
-
-These samples require Visual Studio 2022(v17.2), Visual Studio 2022 for Mac (v17.6) to build, test, and deploy, and also require the .NET 6 SDK.
-
-   [Get a free copy of Visual Studio 2022 Community Edition](https://www.visualstudio.com/wpf-vs)
-
-   [.NET 6 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
-
-
-
-WPF on .NET has been open-sourced, and is now available on [Github](https://github.com/dotnet/wpf)
-
-
-
-## Using the samples
-
-To use the samples with Git, clone the WPF-Samples repository with 'git clone https://github.com/microsoft/WPF-Samples'
-
-After cloning the WPF-Samples respository, there will be two solution files in the root directory: WPF-Samples.sln and WPF-Samples.msbuild.sln 
-
-* To build the samples, open one of the solution files in Visual Studio 2022 and build the solution.
-* Alternatively, navigate to the directory of a sample and build with 'dotnet build' or 'msbuild' specifying the target project file. 
-* WPF-Samples.msbuild.sln contains projects that can be built only with `msbuild` or Visual Studio, and will not compile with `dotnet build`. These projects contain C++ code, for which there is no support in `dotnet build`
-
-The easiest way to use these samples without using Git is to download the zip file containing the current version (using the link below or by clicking the "Download ZIP" button on the [repo](https://github.com/microsoft/WPF-Samples?tab=readme-ov-file) page). You can then unzip the entire archive and use the samples in Visual Studio 2022.
-
-   [Download the samples ZIP](../../archive/main.zip)
-
-   **Notes:** 
-   * Before you unzip the archive, right-click it, select Properties, and then select Unblock.
-   * Most samples should work independently
-   * By default, all the samples target .NET 8.0. (Installers for the .NET 8 SDK can be found at <https://dotnet.microsoft.com/en-us/download>)
-
-For more info about the programming models, platforms, languages, and APIs demonstrated in these samples, please refer to the guidance  available in  [MSDN](https://msdn.microsoft.com/en-us/library/ms754130.aspx). These samples are provided as-is in order to indicate or demonstrate the functionality of the programming models and feature APIs for WPF.
+---
+<p align="center">Built by <b>Mohamed Habib Khattat</b> — <a href="https://github.com/MohamedKhattat">GitHub</a> · <a href="https://www.linkedin.com/in/mohamed-habib-khattat-2b206a173">LinkedIn</a></p>
